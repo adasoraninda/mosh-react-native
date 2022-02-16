@@ -1,20 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 
-const AppText = ({ children, style, maxLines }) => {
+import defaultStyles from "../config/styles";
+
+const AppText = ({ children, style, ...otherProps }) => {
   return (
-    <View>
-      <Text numberOfLines={maxLines} style={[styles.text, style]}>
-        {children}
-      </Text>
-    </View>
+    <Text {...otherProps} style={[defaultStyles.text, style]}>
+      {children}
+    </Text>
   );
 };
 
 export default AppText;
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 18,
-  },
-});
